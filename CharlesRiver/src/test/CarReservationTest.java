@@ -44,11 +44,12 @@ public class CarReservationTest {
 	}
 
 	@Test
+	//this checks that the calculate total cost of reservation method works based on the various pricing models for the cars
 	public void testThatReservationPriceWorks() throws Exception {
 
 		CarReservationController reservationSystem = new CarReservationController();
-		reservationSystem.calculateReservationPrice("PREMIUM","2019-01-22", "2019-01-29");
-		assertTrue(reservationSystem.reservationPrice == 157.50); //there are 7 days between 22nd Jan and 29th. The daily cost of a premium vehicle is $22.50
+		double reservationCost = reservationSystem.calculateReservationPrice(VehicleType.PREMIUM,"2019-01-22", "2019-01-29");
+		assertTrue(reservationCost == 157.50); //there are 7 days between 22nd Jan and 29th. The daily cost of a premium vehicle is $22.50
 	}
 	
 	@Test
@@ -68,8 +69,7 @@ public class CarReservationTest {
 		reservationSystem.addReservation(fourthRes);
 		
 		reservationSystem.deleteReservation(secondRes);
-		assertTrue(reservationSystem.reservationsMap.size() == 3);
-		
+		assertTrue(reservationSystem.reservationsMap.size() == 3);		
 	}
 
 
