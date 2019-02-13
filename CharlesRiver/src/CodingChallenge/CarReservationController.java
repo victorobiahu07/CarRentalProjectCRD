@@ -50,7 +50,8 @@ public class CarReservationController {
 	public void setMaxCarsAvailable(VehicleType v, int maxAvailable) {
 			availableCars.put(v, maxAvailable);
 	}
-
+       
+	//validates phone number input
 	private static boolean validatePhoneNumber(String phoneNo) {
 		//validate phone numbers of format "1234567890"
 		if (phoneNo.matches("\\d{10}")) 
