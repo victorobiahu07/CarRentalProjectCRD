@@ -147,16 +147,13 @@ public class CarReservationController {
 	}
 	
 	//Made this method a function of the start and end date of the rental reservation, calculated num days * price of that type of rental
-	public double calculateReservationPrice(String v, String startDate, String endDate) throws ParseException
+	public double calculateReservationPrice(VehicleType v, String startDate, String endDate) throws ParseException
 	{
 		Date formatStartdate = sdf.parse(startDate);
 		Date formatEndDate = sdf.parse(endDate);
-		VehicleType vehicleType = VehicleType.valueOf(v);
-
 		numDays = Math.round((formatEndDate.getTime() - formatStartdate.getTime()) / (double) 86400000);
-		double reservationPrice = vehicleType.getVehicleDailyCost() * numDays;
+		reservationPrice = v.getVehicleDailyCost() * numDays;
 		return reservationPrice;
 	}
-
 
 }
