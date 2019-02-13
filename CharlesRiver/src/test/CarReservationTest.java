@@ -39,8 +39,6 @@ public class CarReservationTest {
 		CarReservation secondRes = new CarReservation(VehicleType.PREMIUM, "Jon Snow", "9098070212", "2019-01-24", "2019-01-25");
 		reservationSystem.addReservation(secondRes);
 		assertTrue(reservationSystem.reservationsMap.containsKey("9098070212"));
-		//  assertFalse(reservationSystem.canReserveVehicle(VehicleType.PREMIUM, "9098070212", sdf.parse(secondRes.getStartDate()), sdf.parse(secondRes.getEndDate())));
-		// The second reservation should not be allowed added into the reservations list.
 		assertTrue(reservationSystem.reservationsMap.size() < 2); //checking that only 1 reservation happened.
 		assertEquals(firstRes, (reservationSystem.reservationsMap.get("9098070212")).get(0));
 	}
