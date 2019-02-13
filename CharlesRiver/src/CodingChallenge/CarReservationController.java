@@ -97,10 +97,6 @@ public class CarReservationController {
 	//this checks validity of a reservation
 	public boolean canReserveVehicle(VehicleType v, String phoneNumber, Date startDate, Date endDate) throws ParseException 
 	{
-		//if phone Number isn't valid for reservation then it is false
-		//if(!validatePhoneNumber(phoneNumber))
-			//return false;
-
 		PriorityQueue<Date> reservedVehicleQueue = reservedVehicleReturnDates.get(v);
 		if(reservedVehicleQueue == null) {
 			reservedVehicleQueue = new PriorityQueue<Date>();
