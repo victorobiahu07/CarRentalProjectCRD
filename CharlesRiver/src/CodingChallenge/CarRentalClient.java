@@ -6,7 +6,6 @@ import java.util.*;
 
 import CodingChallenge.Vehicle;
 import CodingChallenge.Vehicle.VehicleType;
-import CodingChallenge.Customer;
 import CodingChallenge.CarReservationController;
 
 public class CarRentalClient {
