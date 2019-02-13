@@ -29,8 +29,9 @@ public class CarRentalClient {
 		reservationController.deleteReservation(secondRes);
 		
 		System.out.println("Number of reservations in reservation map: " + reservationController.reservationsMap.size()); //Should return 3 because I added 4 and deleted 1
-	
-		
+
+		double reservationCost = reservationController.calculateReservationPrice(VehicleType.PREMIUM,"2019-01-15", "2019-01-19");
+		System.out.println("Total cost of reservation: " + reservationCost);
 		
 		//For extensive test cases, go to CarReservationTest JUnit class 	
 	}
