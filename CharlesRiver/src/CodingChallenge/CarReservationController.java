@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-
 //main method here where we handle reservations and all that
 public class CarReservationController {
 
@@ -19,7 +18,7 @@ public class CarReservationController {
 	long numDays = 0; 
 	Vehicle vehicle;
 	VehicleType vType;
-	public double reservePrice = 0.0;
+	public double reservationPrice = 0.0;
 
 	String startDate;
 	String endDate;
@@ -40,7 +39,7 @@ public class CarReservationController {
 
 	public HashMap<String, List<CarReservation>> reservationsMap = new HashMap<>();
 
-	public Map<VehicleType, Integer> createAvailableCarsMap() { //was a static method previously
+	public Map<VehicleType, Integer> createAvailableCarsMap() { 
 		Map<VehicleType, Integer> map = new EnumMap<VehicleType, Integer>(VehicleType.class);
 		map.put(VehicleType.ECONOMY, MAX_ECONOMY);
 		map.put(VehicleType.PREMIUM, MAX_PREMIUM);
@@ -66,8 +65,8 @@ public class CarReservationController {
 		else return false;
 	}
 
-
-	public void addReservation(CarReservation res) throws Exception //right here
+        //the core method to create a reservation 
+ 	public void addReservation(CarReservation res) throws Exception 
 	{	
 		
 		Date sDate = res.getStartDate(); //HERE
@@ -94,7 +93,7 @@ public class CarReservationController {
 			}	
 	}
 	
-	//we need to tie in date here. because..
+	//this checks validity of a reservation
 	public boolean canReserveVehicle(VehicleType v, String phoneNumber, Date startDate, Date endDate) throws ParseException 
 	{
 		//if phone Number isn't valid for reservation then it is false
@@ -134,6 +133,18 @@ public class CarReservationController {
 		return true;	
 	}
 
+	
+        //Removes a reservation using phoneNumber as a key
+	public void deleteReservation(CarReservation res)
+	{
+		String phoneNo = res.getPhoneNumber();
+		vType = res.getvType();
+		reservationsMap.remove(phoneNo);
+		int countForVehicleType = availableCars.get(vType);
+		availableCars.put(vType, countForVehicleType + 1);
+		
+	}
+	
 	//Made this method a function of the start and end date of the rental reservation, calculated num days * price of that type of rental
 	public double calculateReservationPrice(String v, String startDate, String endDate) throws ParseException
 	{
@@ -146,15 +157,5 @@ public class CarReservationController {
 		return reservationPrice;
 	}
 
-
-	public void deleteReservation(CarReservation res) //check for vehicle Type and String conversion here.
-	{
-		String phoneNo = res.getPhoneNumber();
-		vType = res.getvType();
-		reservationsMap.remove(phoneNo);
-		int countForVehicleType = availableCars.get(vType);
-		availableCars.put(vType, countForVehicleType + 1);
-		
-	}
 
 }
