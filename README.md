@@ -6,5 +6,7 @@ CarReservationController has the core functionality where I have addReservation,
 There is a map called createAvailableMaps which populates the count of the 3 vehicles types which ties into the availableCars map, reservationsMap and reservedVehicleReturnDates.
 I included the carRentalClient class which contains displays some of the core methods
 Lastly I included the CarReservationTest class which I did using JUnit. This further tested validity of core methods.
+This project took 3hrs in it's entirety due to test cases and testing classes within Java Main
+
 
 
