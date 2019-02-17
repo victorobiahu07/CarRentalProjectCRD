@@ -1,4 +1,10 @@
 # CarRentalProjectCRD
+Designing a prototype a car rental system using OOP with a focus on the following 
+1. Having the system let a customer reserve a car of a given type at a desired date and time for a given number of days.
+
+2. The number of cars of each type is limited, but customers should be able to reserve a single rental car for multiple, non-overlapping time frames.
+3.       Provide JUnit tests that illustrate the core reservation workflow and demonstrates its correctness, including a negative test for when a car is not available.
+------------------------------------------------------------------------------------------------------------------------------------------
 This project contains 4 classes 
 Vehicle which contains an Enum VehicleType for the 3 possible type of cars a customer can rent..The 3 types of cars all have different prices. I
 CarReservation class is a POJO with the attributes necessary to make a Reservation happen
